@@ -1,0 +1,14 @@
+{
+	"folders": [
+		{
+			"path": "functions"
+		},
+		{
+			"path": "variables"
+		},
+		{
+			"path": "guessing_game"
+		}
+	],
+	"settings": {}
+}

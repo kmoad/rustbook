@@ -24,7 +24,7 @@ fn main() {
 
     println!("x = {}, y = {}", x, y);
     // Wait! this doesn't apply to the integers!
-    // Integers are entirely in the stack, and are a known size. 
+    // Integers are entirely in the stack, and are a known size.
     // They are copied by default
 
     // Passing as a param will also move
@@ -47,6 +47,7 @@ fn main() {
     let mut s5 = String::from("hello");
     // Mutable references
     let r1 = &mut s5;
+    println!("r1: {}", r1);
     // Can't have more than one mutable ref at a time
     // let r2 = &mut s5;
     // println!("r1 {}, r2 {}", r1, r2);
@@ -64,16 +65,34 @@ fn main() {
     println!("{}", r3);
 
     // Slices
-    
+    let s = String::from("hello world");
+    let hello = &s[..5];
+    let world = &s[6..];
+    println!("slice1: {}, slice2: {}", hello, world);
+    // Recall that String is a pointer to the start,
+    // and a len
+    // NOTE slices must occur at utf-8 character boundaries
+    // It's a runtime error otherwise. We're assuming ASCII here
+    println!("first word of s: {}", first_word(&s));
+
+    // Important to continue reading the lesson here. It describes
+    // passing slices to first_word, instead of whole String
+    // &str will accept &String, but not the other way around
+
+    // Also, slices work on arrays in the same way
+    let a = [1, 2, 3, 4, 5];
+    let slice = &a[1..3];
+    assert_eq!(slice, &[2, 3]);
 }
 
-
-fn takes_ownership(some_string: String) { // some_string comes into scope
+fn takes_ownership(some_string: String) {
+    // some_string comes into scope
     println!("{}", some_string);
 } // Here, some_string goes out of scope and `drop` is called. The backing
   // memory is freed.
 
-fn makes_copy(some_integer: i32) { // some_integer comes into scope
+fn makes_copy(some_integer: i32) {
+    // some_integer comes into scope
     println!("{}", some_integer);
 } // Here, some_integer goes out of scope. Nothing special happens.
 
@@ -89,4 +108,16 @@ fn calculate_length(s: &String) -> usize {
 // But you can make them mutable
 fn change(some_string: &mut String) {
     some_string.push_str(", world");
+}
+
+fn first_word(s: &String) -> &str {
+    // &str means string slice
+    let bytes = s.as_bytes();
+
+    for (i, &item) in bytes.iter().enumerate() {
+        if item == b' ' {
+            return &s[..i];
+        }
+    }
+    &s[..]
 }

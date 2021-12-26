@@ -107,12 +107,13 @@ fn convert_temp(temp: f64, unit: TemperatureUnit) -> f64 {
 }
 
 // Fibonacci RECURSIVE
-fn fib_recursive(n: i32) -> i32 {
+// TODO handle 0 or negative
+fn fib_recursive(n: u32) -> u32 {
     if n<=1 { 1 } else { n + fib_recursive(n-1) }
 }
 
 // Fibonacci LOOP
-fn fib_loop(n: i32) -> i32 {
+fn fib_loop(n: usize) -> usize {
     let mut res = 0;
     for i in 1..n+1 {
         res += i;

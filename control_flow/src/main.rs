@@ -10,7 +10,7 @@ fn main() {
     }
 
     let number = 6;
-    
+
     if number % 4 == 0 {
         println!("divisible by 4");
     } else if number % 3 == 0 {
@@ -93,39 +93,45 @@ fn main() {
     println!("loop fib(1): {}", fib_loop(1));
     println!("loop fib(0): {}", fib_loop(0));
 
-    println!("68 F in C: {}", convert_temp(68.0, TemperatureUnit::Farenheit));
+    println!(
+        "68 F in C: {}",
+        convert_temp(68.0, TemperatureUnit::Farenheit)
+    );
 
-    println!("100 C in F: {}", convert_temp(100.0, TemperatureUnit::Celcius));
+    println!(
+        "100 C in F: {}",
+        convert_temp(100.0, TemperatureUnit::Celcius)
+    );
 }
 
 // Convert between Celcius and Farenheit
 enum TemperatureUnit {
     Celcius,
-    Farenheit
+    Farenheit,
 }
 fn convert_temp(temp: f64, unit: TemperatureUnit) -> f64 {
     match unit {
-        TemperatureUnit::Celcius => temp * 9.0/5.0 + 32.0,
-        TemperatureUnit::Farenheit => (temp - 32.0) * 5.0/9.0,
+        TemperatureUnit::Celcius => temp * 9.0 / 5.0 + 32.0,
+        TemperatureUnit::Farenheit => (temp - 32.0) * 5.0 / 9.0,
     }
 }
 
 // Fibonacci RECURSIVE
 // TODO handle 0 or negative
 fn fib_recursive(n: u32) -> u32 {
-    if n==0 {
+    if n == 0 {
         return 0;
-    } else if n==1 {
+    } else if n == 1 {
         return 1;
     } else {
-        return n + fib_recursive(n-1);
+        return n + fib_recursive(n - 1);
     }
 }
 
 // Fibonacci LOOP
 fn fib_loop(n: usize) -> usize {
     let mut res = 0;
-    for i in 1..n+1 {
+    for i in 1..n + 1 {
         res += i;
     }
     res

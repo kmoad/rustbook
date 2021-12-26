@@ -86,7 +86,8 @@ fn main() {
     }
     println!("LIFTOFF!");
 
-    println!("fib(5): {}", fib(5));
+    println!("recur fib(5): {}", fib_recursive(5));
+    println!("loop fib(5): {}", fib_loop(5));
 
     println!("68 F in C: {}", convert_temp(68.0, TemperatureUnit::Farenheit));
 
@@ -105,11 +106,16 @@ fn convert_temp(temp: f64, unit: TemperatureUnit) -> f64 {
     }
 }
 
-// Fibonacci
-fn fib(n: i32) -> i32 {
-    if n<=1 {
-        return 1;
-    } else {
-        return n + fib(n-1);
+// Fibonacci RECURSIVE
+fn fib_recursive(n: i32) -> i32 {
+    if n<=1 { 1 } else { n + fib_recursive(n-1) }
+}
+
+// Fibonacci LOOP
+fn fib_loop(n: i32) -> i32 {
+    let mut res = 0;
+    for i in 1..n+1 {
+        res += i;
     }
+    res
 }

@@ -8,6 +8,9 @@
 		},
 		{
 			"path": "guessing_game"
+		},
+		{
+			"path": "control_flow"
 		}
 	],
 	"settings": {}

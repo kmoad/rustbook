@@ -117,7 +117,6 @@ fn convert_temp(temp: f64, unit: TemperatureUnit) -> f64 {
 }
 
 // Fibonacci RECURSIVE
-// TODO handle 0 or negative
 fn fib_recursive(n: u32) -> u32 {
     if n == 0 {
         return 0;

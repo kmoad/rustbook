@@ -87,7 +87,11 @@ fn main() {
     println!("LIFTOFF!");
 
     println!("recur fib(5): {}", fib_recursive(5));
+    println!("recur fib(1): {}", fib_recursive(1));
+    println!("recur fib(0): {}", fib_recursive(0));
     println!("loop fib(5): {}", fib_loop(5));
+    println!("loop fib(1): {}", fib_loop(1));
+    println!("loop fib(0): {}", fib_loop(0));
 
     println!("68 F in C: {}", convert_temp(68.0, TemperatureUnit::Farenheit));
 
@@ -109,7 +113,13 @@ fn convert_temp(temp: f64, unit: TemperatureUnit) -> f64 {
 // Fibonacci RECURSIVE
 // TODO handle 0 or negative
 fn fib_recursive(n: u32) -> u32 {
-    if n<=1 { 1 } else { n + fib_recursive(n-1) }
+    if n==0 {
+        return 0;
+    } else if n==1 {
+        return 1;
+    } else {
+        return n + fib_recursive(n-1);
+    }
 }
 
 // Fibonacci LOOP

@@ -14,6 +14,12 @@
 		},
 		{
 			"path": "ownership"
+		},
+		{
+			"path": "structs"
+		},
+		{
+			"path": "rectangles"
 		}
 	],
 	"settings": {}

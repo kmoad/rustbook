@@ -18,15 +18,14 @@ fn main() {
     println!("user2.username: {}", user2.username);
 
     // Tuple structs
-    let black = Color(0,0,0);
-    let origin = Point(0,0,0);
+    let black = Color(0, 0, 0);
+    let origin = Point(0, 0, 0);
     println!("black.0: {}", black.0);
     println!("origing.0: {}", origin.0);
 
     // Unit-Like structs
     // These ebcome useful later as containers for traits
     let subject = AlwaysEqual;
-
 }
 
 struct User {

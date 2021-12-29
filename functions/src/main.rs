@@ -22,10 +22,9 @@ fn main() {
     let x = five();
     println!("x: {}", x);
 
-    println!("5+1={}",plus_one(5));
+    println!("5+1={}", plus_one(5));
 
-    println!("5+2={}",plus_two(5));
-
+    println!("5+2={}", plus_two(5));
 }
 
 fn another_function(x: i32) {
